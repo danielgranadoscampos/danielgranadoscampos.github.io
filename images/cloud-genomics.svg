@@ -1,136 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" font-family="'Fira Mono', 'Consolas', monospace">
-  <defs>
-    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L8,3 L0,6" fill="#87ff87"/>
-    </marker>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <filter id="glow-soft">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
+<svg width="100%" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" role="img" font-family="'Fira Mono', 'Courier New', monospace">
+<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Wet Lab as a Service — autonomous design and execution loop</title>
+<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">An AI model in San Francisco designs experiments that a robotic laboratory in Boston executes, with results streaming back about once per hour, totaling 36,000 experiments.</desc>
+<defs>
+<filter id="g" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="tg" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0L0 0L0 32" fill="none" stroke="#87ff87" stroke-width="0.5" opacity="0.06"/></pattern>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L8 5L1 9" fill="none" stroke="#87ff87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
 
-  <!-- background -->
-  <rect width="1200" height="400" fill="#000"/>
+<rect width="1200" height="400" fill="#000" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect width="1200" height="400" fill="url(#grid)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- subtle grid -->
-  <g opacity="0.04" stroke="#87ff87">
-    <line x1="0" y1="80" x2="1200" y2="80"/>
-    <line x1="0" y1="160" x2="1200" y2="160"/>
-    <line x1="0" y1="240" x2="1200" y2="240"/>
-    <line x1="0" y1="320" x2="1200" y2="320"/>
-    <line x1="200" y1="0" x2="200" y2="400"/>
-    <line x1="400" y1="0" x2="400" y2="400"/>
-    <line x1="600" y1="0" x2="600" y2="400"/>
-    <line x1="800" y1="0" x2="800" y2="400"/>
-    <line x1="1000" y1="0" x2="1000" y2="400"/>
-  </g>
+<text x="600" y="40" font-size="22" font-weight="500" fill="#87ff87" text-anchor="middle" filter="url(#tg)" letter-spacing="1" style="fill:rgb(135, 255, 135);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:22px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Wet Lab as a Service</text>
+<text x="600" y="60" font-size="10" fill="#999" text-anchor="middle" style="fill:rgb(153, 153, 153);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">// an autonomous research loop</text>
 
-  <!-- ===== LLM BOX (left) ===== -->
-  <rect x="40" y="80" width="220" height="240" rx="2" fill="#111" stroke="#87ff8755" stroke-width="1"/>
-  <!-- title bar -->
-  <rect x="40" y="80" width="220" height="24" rx="2" fill="#1a1a1a"/>
-  <circle cx="54" cy="92" r="4" fill="#ff5f5f"/>
-  <circle cx="66" cy="92" r="4" fill="#ffaf5f"/>
-  <circle cx="78" cy="92" r="4" fill="#87ff87"/>
-  <text x="150" y="96" text-anchor="middle" fill="#999" font-size="10">gpt-5</text>
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="50" y="90" width="220" height="150" rx="4" fill="#111" stroke="#87ff87" stroke-opacity="0.33" style="fill:rgb(17, 17, 17);stroke:rgb(135, 255, 135);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="50" y1="114" x2="270" y2="114" stroke="#87ff87" stroke-opacity="0.33" style="fill:rgb(0, 0, 0);stroke:rgb(135, 255, 135);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="63" cy="102" r="3.5" fill="#ff5f57" style="fill:rgb(255, 95, 87);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/><circle cx="75" cy="102" r="3.5" fill="#febc2e" style="fill:rgb(254, 188, 46);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/><circle cx="87" cy="102" r="3.5" fill="#28c840" style="fill:rgb(40, 200, 64);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="160" y="106" font-size="10" fill="#999" text-anchor="middle" style="fill:rgb(153, 153, 153);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">ai_model.py</text>
+<text x="160" y="146" font-size="17" font-weight="500" fill="#5fffff" text-anchor="middle" style="fill:rgb(95, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:17px;font-weight:500;text-anchor:middle;dominant-baseline:auto">AI Model</text>
+<text x="160" y="175" font-size="11" fill="#ffd7af" text-anchor="middle" style="fill:rgb(255, 215, 175);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">reads results,</text>
+<text x="160" y="192" font-size="11" fill="#ffd7af" text-anchor="middle" style="fill:rgb(255, 215, 175);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">forms hypotheses,</text>
+<text x="160" y="209" font-size="11" fill="#ffd7af" text-anchor="middle" style="fill:rgb(255, 215, 175);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">designs next</text>
+<text x="160" y="226" font-size="11" fill="#ffd7af" text-anchor="middle" style="fill:rgb(255, 215, 175);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">experiment</text>
+<text x="160" y="262" font-size="11" fill="#999" text-anchor="middle" style="fill:rgb(153, 153, 153);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">// San Francisco</text>
+</g>
 
-  <text x="150" y="135" text-anchor="middle" fill="#5fffff" font-size="13" font-weight="bold">LLM</text>
+<line x1="275" y1="165" x2="322" y2="165" stroke="#87ff87" stroke-width="1.5" marker-end="url(#arr)" filter="url(#g)" style="fill:rgb(0, 0, 0);stroke:rgb(135, 255, 135);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <text x="150" y="170" text-anchor="middle" fill="#ffd7af" font-size="10">data analysis</text>
-  <text x="150" y="188" text-anchor="middle" fill="#ffd7af" font-size="10">hypothesis gen</text>
-  <text x="150" y="206" text-anchor="middle" fill="#ffd7af" font-size="10">experiment design</text>
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="330" y="125" width="190" height="90" rx="4" fill="#111" stroke="#87ff87" stroke-opacity="0.33" style="fill:rgb(17, 17, 17);stroke:rgb(135, 255, 135);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="330" y1="149" x2="520" y2="149" stroke="#87ff87" stroke-opacity="0.33" style="fill:rgb(0, 0, 0);stroke:rgb(135, 255, 135);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="343" cy="137" r="3.5" fill="#ff5f57" style="fill:rgb(255, 95, 87);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/><circle cx="355" cy="137" r="3.5" fill="#febc2e" style="fill:rgb(254, 188, 46);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/><circle cx="367" cy="137" r="3.5" fill="#28c840" style="fill:rgb(40, 200, 64);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="425" y="141" font-size="10" fill="#999" text-anchor="middle" style="fill:rgb(153, 153, 153);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">protocol.json</text>
+<text x="425" y="177" font-size="14" font-weight="500" fill="#5fffff" text-anchor="middle" style="fill:rgb(95, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Experiment Design</text>
+<text x="425" y="199" font-size="11" fill="#ffd7af" text-anchor="middle" style="fill:rgb(255, 215, 175);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">structured protocol</text>
+</g>
 
-  <!-- prompt cursor -->
-  <text x="70" y="245" fill="#87ff87" font-size="11">$</text>
-  <text x="82" y="245" fill="#ffd7af" font-size="11">design_next()</text>
-  <rect x="192" y="234" width="7" height="13" fill="#ffd7af" opacity="0.7"/>
+<line x1="525" y1="170" x2="572" y2="170" stroke="#87ff87" stroke-width="1.5" marker-end="url(#arr)" filter="url(#g)" style="fill:rgb(0, 0, 0);stroke:rgb(135, 255, 135);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <text x="150" y="280" text-anchor="middle" fill="#999" font-size="9">San Francisco</text>
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="580" y="90" width="240" height="150" rx="4" fill="#111" stroke="#87ff87" stroke-opacity="0.33" style="fill:rgb(17, 17, 17);stroke:rgb(135, 255, 135);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="580" y1="114" x2="820" y2="114" stroke="#87ff87" stroke-opacity="0.33" style="fill:rgb(0, 0, 0);stroke:rgb(135, 255, 135);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="593" cy="102" r="3.5" fill="#ff5f57" style="fill:rgb(255, 95, 87);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/><circle cx="605" cy="102" r="3.5" fill="#febc2e" style="fill:rgb(254, 188, 46);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/><circle cx="617" cy="102" r="3.5" fill="#28c840" style="fill:rgb(40, 200, 64);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="700" y="106" font-size="10" fill="#999" text-anchor="middle" style="fill:rgb(153, 153, 153);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">robolab.sh</text>
+<text x="700" y="146" font-size="17" font-weight="500" fill="#5fffff" text-anchor="middle" style="fill:rgb(95, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:17px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Cloud Laboratory</text>
+<text x="700" y="175" font-size="11" fill="#ffd7af" text-anchor="middle" style="fill:rgb(255, 215, 175);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">robotic equipment</text>
+<text x="700" y="192" font-size="11" fill="#ffd7af" text-anchor="middle" style="fill:rgb(255, 215, 175);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">executes the experiment</text>
+<text x="700" y="209" font-size="11" fill="#ffd7af" text-anchor="middle" style="fill:rgb(255, 215, 175);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">automatically</text>
+<text x="700" y="262" font-size="11" fill="#999" text-anchor="middle" style="fill:rgb(153, 153, 153);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">// Boston, MA</text>
+</g>
 
-  <!-- ===== FLOW ARROW: LLM -> Schema ===== -->
-  <path d="M 270 170 L 370 170" stroke="#87ff87" stroke-width="1.5" fill="none" marker-end="url(#arrow)" filter="url(#glow)"/>
-  <text x="320" y="160" text-anchor="middle" fill="#87ff87" font-size="9" opacity="0.7">design</text>
+<line x1="825" y1="165" x2="872" y2="165" stroke="#87ff87" stroke-width="1.5" marker-end="url(#arr)" filter="url(#g)" style="fill:rgb(0, 0, 0);stroke:rgb(135, 255, 135);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- ===== SCHEMA BOX (center-left) ===== -->
-  <rect x="380" y="100" width="200" height="140" rx="2" fill="#111" stroke="#87ff8755" stroke-width="1"/>
-  <rect x="380" y="100" width="200" height="24" rx="2" fill="#1a1a1a"/>
-  <circle cx="394" cy="112" r="4" fill="#ff5f5f"/>
-  <circle cx="406" cy="112" r="4" fill="#ffaf5f"/>
-  <circle cx="418" cy="112" r="4" fill="#87ff87"/>
-  <text x="480" y="116" text-anchor="middle" fill="#999" font-size="10">pydantic</text>
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="880" y="90" width="220" height="150" rx="4" fill="#111" stroke="#87ff87" stroke-opacity="0.33" style="fill:rgb(17, 17, 17);stroke:rgb(135, 255, 135);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="880" y1="114" x2="1100" y2="114" stroke="#87ff87" stroke-opacity="0.33" style="fill:rgb(0, 0, 0);stroke:rgb(135, 255, 135);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="893" cy="102" r="3.5" fill="#ff5f57" style="fill:rgb(255, 95, 87);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/><circle cx="905" cy="102" r="3.5" fill="#febc2e" style="fill:rgb(254, 188, 46);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/><circle cx="917" cy="102" r="3.5" fill="#28c840" style="fill:rgb(40, 200, 64);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="990" y="106" font-size="10" fill="#999" text-anchor="middle" style="fill:rgb(153, 153, 153);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">results.log</text>
+<text x="990" y="146" font-size="17" font-weight="500" fill="#5fffff" text-anchor="middle" style="fill:rgb(95, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:17px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Results</text>
+<text x="990" y="175" font-size="11" fill="#ffd7af" text-anchor="middle" style="fill:rgb(255, 215, 175);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">cost, yield,</text>
+<text x="990" y="192" font-size="11" fill="#ffd7af" text-anchor="middle" style="fill:rgb(255, 215, 175);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">what worked,</text>
+<text x="990" y="209" font-size="11" fill="#ffd7af" text-anchor="middle" style="fill:rgb(255, 215, 175);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">what didn't</text>
+</g>
 
-  <text x="395" y="148" fill="#ff87af" font-size="10">{</text>
-  <text x="405" y="164" fill="#5fffff" font-size="10">"plate_id"</text>
-  <text x="495" y="164" fill="#ffd7af" font-size="10">: ".."</text>
-  <text x="405" y="180" fill="#5fffff" font-size="10">"samples"</text>
-  <text x="490" y="180" fill="#ffd7af" font-size="10">: [...]</text>
-  <text x="405" y="196" fill="#5fffff" font-size="10">"reagents"</text>
-  <text x="495" y="196" fill="#ffd7af" font-size="10">: [...]</text>
-  <text x="395" y="212" fill="#ff87af" font-size="10">}</text>
+<path d="M990 240 L990 320 L160 320 L160 243" fill="none" stroke="#87ff87" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.65" marker-end="url(#arr)" style="fill:none;stroke:rgb(135, 255, 135);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-dasharray:5px, 5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.65;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <text x="480" y="225" text-anchor="middle" fill="#87ff87" font-size="9">validated</text>
+<rect x="435" y="308" width="290" height="22" fill="#000" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="580" y="324" font-size="11" text-anchor="middle" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">
+<tspan fill="#87ff87" style="fill:rgb(135, 255, 135);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">~1 hour per cycle</tspan><tspan fill="#999" style="fill:rgb(153, 153, 153);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto"> — </tspan><tspan fill="#ff87af" style="fill:rgb(255, 135, 175);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">36,000 experiments</tspan>
+</text>
 
-  <!-- ===== FLOW ARROW: Schema -> Cloud Lab ===== -->
-  <path d="M 590 170 L 690 170" stroke="#87ff87" stroke-width="1.5" fill="none" marker-end="url(#arrow)" filter="url(#glow)"/>
-  <text x="640" y="160" text-anchor="middle" fill="#87ff87" font-size="9" opacity="0.7">API call</text>
-
-  <!-- ===== CLOUD LAB BOX (center-right) ===== -->
-  <rect x="700" y="80" width="220" height="240" rx="2" fill="#111" stroke="#87ff8755" stroke-width="1"/>
-  <rect x="700" y="80" width="220" height="24" rx="2" fill="#1a1a1a"/>
-  <circle cx="714" cy="92" r="4" fill="#ff5f5f"/>
-  <circle cx="726" cy="92" r="4" fill="#ffaf5f"/>
-  <circle cx="738" cy="92" r="4" fill="#87ff87"/>
-  <text x="810" y="96" text-anchor="middle" fill="#999" font-size="10">cloud-lab</text>
-
-  <text x="810" y="135" text-anchor="middle" fill="#5fffff" font-size="13" font-weight="bold">RACs</text>
-
-  <text x="810" y="170" text-anchor="middle" fill="#ffd7af" font-size="10">liquid handling</text>
-  <text x="810" y="188" text-anchor="middle" fill="#ffd7af" font-size="10">incubation</text>
-  <text x="810" y="206" text-anchor="middle" fill="#ffd7af" font-size="10">fluorescence</text>
-  <text x="810" y="224" text-anchor="middle" fill="#ffd7af" font-size="10">plate reading</text>
-
-  <!-- status indicator -->
-  <circle cx="730" cy="270" r="4" fill="#87ff87" filter="url(#glow)"/>
-  <text x="740" y="274" fill="#87ff87" font-size="10">running</text>
-
-  <text x="810" y="300" text-anchor="middle" fill="#999" font-size="9">Boston, MA</text>
-
-  <!-- ===== FLOW ARROW: Cloud Lab -> Results ===== -->
-  <path d="M 930 200 L 1010 200" stroke="#87ff87" stroke-width="1.5" fill="none" marker-end="url(#arrow)" filter="url(#glow)"/>
-  <text x="970" y="190" text-anchor="middle" fill="#87ff87" font-size="9" opacity="0.7">results</text>
-
-  <!-- ===== RESULTS BOX (right) ===== -->
-  <rect x="1020" y="120" width="150" height="120" rx="2" fill="#111" stroke="#87ff8755" stroke-width="1"/>
-  <rect x="1020" y="120" width="150" height="24" rx="2" fill="#1a1a1a"/>
-  <circle cx="1034" cy="132" r="4" fill="#ff5f5f"/>
-  <circle cx="1046" cy="132" r="4" fill="#ffaf5f"/>
-  <circle cx="1058" cy="132" r="4" fill="#87ff87"/>
-  <text x="1095" y="136" text-anchor="middle" fill="#999" font-size="10">data</text>
-
-  <text x="1035" y="162" fill="#ff87af" font-size="9">{</text>
-  <text x="1042" y="175" fill="#5fffff" font-size="9">"titer"</text>
-  <text x="1085" y="175" fill="#ffd7af" font-size="9">: 2.1</text>
-  <text x="1042" y="189" fill="#5fffff" font-size="9">"cost"</text>
-  <text x="1080" y="189" fill="#ffd7af" font-size="9">: 422</text>
-  <text x="1042" y="203" fill="#5fffff" font-size="9">"plate"</text>
-  <text x="1085" y="203" fill="#ffd7af" font-size="9">: 64</text>
-  <text x="1035" y="217" fill="#ff87af" font-size="9">}</text>
-
-  <!-- ===== RETURN ARROW: Results -> LLM (bottom arc) ===== -->
-  <path d="M 1095 250 C 1095 360, 150 360, 150 330" stroke="#87ff87" stroke-width="1.5" fill="none" stroke-dasharray="6,4" marker-end="url(#arrow)" filter="url(#glow)"/>
-  <text x="600" y="370" text-anchor="middle" fill="#87ff87" font-size="10">iterate &#8212; ~1 hour/cycle &#215; 6 rounds &#8212; 36,000 experiments</text>
-
-  <!-- top label -->
-  <text x="600" y="35" text-anchor="middle" fill="#87ff87" font-size="16" font-weight="bold" filter="url(#glow-soft)">Wet Lab as a Service</text>
-  <text x="600" y="55" text-anchor="middle" fill="#999" font-size="11">autonomous cloud laboratory architecture</text>
+<text x="600" y="378" font-size="9" fill="#87ff87" opacity="0.5" text-anchor="middle" letter-spacing="3" style="fill:rgb(135, 255, 135);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Fira Mono&quot;, &quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">[ AI DESIGNS · ROBOTS EXECUTE · RESULTS RETURN · REPEAT ]</text>
 </svg>
