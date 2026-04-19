@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% if site.description %}<meta name="description" content="{{ site.description }}">{% endif %}
+</head>
+<body>
+  <div id="container">
+    {% include nav.html %}
+    {{ content }}
+    <footer>
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.author }} &middot; powered by <a href="https://jekyllrb.com">jekyll</a> + <a href="https://pages.github.com">github pages</a></p>
+    </footer>
+  </div>
+</body>
+</html>

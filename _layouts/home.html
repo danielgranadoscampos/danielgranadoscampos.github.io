@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<div class="intro">
+  {% if site.avatar %}
+  <img src="{{ site.avatar | relative_url }}" alt="{{ site.author }}" width="128" height="128" class="avatar">
+  {% endif %}
+  <p class="greeting">{{ site.subtitle }}</p>
+  {{ content }}
+</div>
+
+{% if site.paginate %}
+  {% assign posts = paginator.posts %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+{% if posts.size > 0 %}
+<h2>~/posts</h2>
+<ul class="post-list">
+  {% for post in posts %}
+  <li>
+    {% if post.thumbnail %}
+    <img src="{{ post.thumbnail | relative_url }}" alt="" class="post-thumb">
+    {% endif %}
+    <div class="post-info">
+      <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      <span class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
+      {% if post.subtitle %}
+      <div class="post-excerpt">{{ post.subtitle }}</div>
+      {% elsif post.excerpt %}
+      <div class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</div>
+      {% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
